@@ -46,11 +46,20 @@ $conn->close();
 <head>
     <title>Đăng nhập</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/19/1705d686ea3e4466~tplv-t2oaga2asx-image.image);
+            background-size: cover;
+        }
         .container {
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 400px;
+            padding: 30px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .form-group {
@@ -69,16 +78,23 @@ $conn->close();
 
         .form-group button {
             padding: 5px 10px;
+            background-color: #FF6600;
+            color: #fff;
+            border-radius: 5px; 
+            margin-right: 5px;
         }
 
         .form-group .error {
             color: red;
         }
+        .container h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Đăng nhập</h2>
+        <h1>ĐĂNG NHẬP</h1>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="username">Tên đăng nhập:</label>

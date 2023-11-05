@@ -37,11 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Thêm sản phẩm</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://images7.alphacoders.com/131/1318803.jpeg);
+            background-size: cover;
+        }
         .container {
             width: 300px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .form-group {
@@ -70,11 +80,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .form-group .success {
             color:green;
         }
+        .container h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Thêm sản phẩm</h2>
+        <h1>Thêm sản phẩm</h1>
         <?php
         if (isset($error_message)) {
             echo '<div class="form-group error">' . $error_message . '</div>';

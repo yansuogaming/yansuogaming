@@ -33,11 +33,21 @@ $conn->close();
 <head>
     <title>Thêm sản phẩm</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://images7.alphacoders.com/131/1318803.jpeg);
+            background-size: cover;
+        }
         .container {
             width: 300px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .form-group {
@@ -57,11 +67,14 @@ $conn->close();
         .form-group button {
             padding: 5px 10px;
         }
+        .container h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Thêm sản phẩm</h2>
+        <h1>THÊM SẢN PHẨM</h1>
         <form method="post" action="add_product_process.php">
             <div class="form-group">
                 <label for="product_name">Tên sản phẩm:</label>
@@ -80,7 +93,6 @@ $conn->close();
                 <textarea id="stock_quantity" name="stock_quantity"></textarea>
             </div>
             <div class="form-group">
-
                 <button type="submit">Thêm sản phẩm</button>
             </div>
         </form>

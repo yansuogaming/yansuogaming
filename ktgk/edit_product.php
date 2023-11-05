@@ -49,11 +49,21 @@ $conn->close();
 <head>
     <title>Sửa sản phẩm</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://images7.alphacoders.com/131/1318803.jpeg);
+            background-size: cover;
+        }
         .container {
             width: 400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .form-group {
@@ -73,11 +83,14 @@ $conn->close();
         .form-group button {
             padding: 5px 10px;
         }
+        .container h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Sửa sản phẩm</h1>
+        <h1>SỬA SẢN PHẨM</h1>
         <form method="POST" action="">
             <input type="hidden" name="id" value="<?php echo $product['product_id']; ?>">
             <div class="form-group">

@@ -3,11 +3,21 @@
 <head>
     <title>Đăng ký</title>
     <style>
+            body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/19/1705d686ea3e4466~tplv-t2oaga2asx-image.image);
+            background-size: cover;
+        }
         .container {
             width: 300px;
+            padding: 30px;
             margin: 0 auto;
-            padding: 20px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .form-group {
@@ -31,11 +41,14 @@
         .form-group .error {
             color: red;
         }
+        .container h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Đăng ký</h2>
+        <h1>ĐĂNG KÝ</h1>
         <form method="post" action="register_process.php">
             <div class="form-group">
                 <label for="username">Tên đăng nhập:</label>

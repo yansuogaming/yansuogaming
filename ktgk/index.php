@@ -3,11 +3,21 @@
 <head>
     <title>Đăng nhập và Đăng ký</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/19/1705d686ea3e4466~tplv-t2oaga2asx-image.image);
+            background-size: cover;
+        }
+
         .container {
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 400px;
+            padding: 30px;
             border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .form-group {
@@ -26,16 +36,36 @@
 
         .form-group button {
             padding: 5px 10px;
+            background-color: #FF6600;
+            color: #fff;
+            border-radius: 5px; 
+            margin-right: 5px;
         }
 
         .form-group .error {
             color: red;
         }
+
+        .container h1 {
+            text-align: center;
+        }
+
+        .container .btn-export {
+            margin-top: 10px;
+        }
     </style>
+    <script>
+        function exportExcel() {
+            var confirmation = confirm("Bạn có muốn xuất file Excel không?");
+            if (confirmation) {
+                window.location.href = "export_excel_user.php";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h2>Đăng nhập</h2>
+        <h1>ĐĂNG NHẬP</h1>
         <form method="post" action="login.php">
             <div class="form-group">
                 <label for="username">Tên đăng nhập:</label>
@@ -47,10 +77,13 @@
             </div>
             <div class="form-group">
                 <button type="submit">Đăng nhập</button>
-                <a href="export_excel_user.php">Xuất Excel</a>
+                <button type="button" onclick="exportExcel()">Xuất Excel</button>
             </div>
         </form>
         <p>Chưa có tài khoản? <a href="register.php">Đăng ký ngay</a></p>
+        <p style="text-align: center; margin-top: 20px;">© Copyright by Yansuo</p>
+        </div>
     </div>
+    
 </body>
 </html>
