@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Kiểm tra xem có tham số id trong URL hay không
 if (!isset($_GET["id"])) {
     header("Location: manage_products.php");
@@ -24,6 +26,7 @@ $delete_product_sql = "DELETE FROM Products WHERE product_id = '$id'";
 
 if ($conn->query($delete_product_sql) === TRUE) {
     // Xóa sản phẩm thành công
+    $_SESSION['success_message'] = 'Đã xoá thành công.';
     header("Location: manage_products.php");
     exit();
 } else {
