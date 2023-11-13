@@ -35,7 +35,12 @@ if (isset($_POST['id'])) {
 }
 
 // Lấy thông tin sản phẩm từ cơ sở dữ liệu
-$product_id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $product_id = $_GET['id'];
+} else {
+    echo "Không tìm thấy sản phẩm.";
+    exit;
+}
 $sql = "SELECT * FROM products WHERE product_id='$product_id'";
 $result = $conn->query($sql);
 $product = $result->fetch_assoc();

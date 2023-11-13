@@ -48,6 +48,14 @@ $conn->close();
 <head>
     <title>Đăng ký</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/19/1705d686ea3e4466~tplv-t2oaga2asx-image.image);
+            background-size: cover;
+        }
         .container {
             width: 300px;
             margin: 0 auto;

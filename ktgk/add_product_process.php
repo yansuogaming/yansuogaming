@@ -17,19 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
     $stock_quantity = $_POST["stock_quantity"];
 
-    // Thêm sản phẩm vào cơ sở dữ liệu
-    $add_product_sql = "INSERT INTO Products (product_name, price, description, stock_quantity) VALUES ('$product_name', '$price', '$description', '$stock_quantity')";
-
-    if ($conn->query($add_product_sql) === TRUE) {
-        // Thêm sản phẩm thành công
-        $success_message = "Sản phẩm đã được thêm vào.";
-        echo '<script>window.location.href = "manage_products.php?success_message=' . urlencode($success_message) . '";</script>';
-        exit();
+    // Kiểm tra không được bỏ trống và giá tiền và số lượng tồn kho phải là số
+    if (empty($product_name) || !is_numeric($price) || !is_numeric($stock_quantity)) {
+        $error_message = "Vui lòng nhập đầy đủ thông tin và đảm bảo giá tiền và số lượng tồn kho là số.";
     } else {
-        $error_message = "Đã xảy ra lỗi trong quá trình thêm sản phẩm.";
+        // Thêm sản phẩm vào cơ sở dữ liệu
+        $add_product_sql = "INSERT INTO Products (product_name, price, description, stock_quantity) VALUES ('$product_name', '$price', '$description', '$stock_quantity')";
+
+        if ($conn->query($add_product_sql) === TRUE) {
+            // Thêm sản phẩm thành công
+            $success_message = "Sản phẩm đã được thêm vào.";
+            echo '<script>window.location.href = "manage_products.php?success_message=' . urlencode($success_message) . '";</script>';
+            exit();
+        } else {
+            $error_message = "Đã xảy ra lỗi trong quá trình thêm sản phẩm.";
+        }
     }
-    
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container">
-        <h1>Thêm sản phẩm</h1>
+        <h1>THÊM SẢN PHẨM</h1>
         <?php
         if (isset($error_message)) {
             echo '<div class="form-group error">' . $error_message . '</div>';
@@ -109,8 +114,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <textarea id="description" name="description"></textarea>
             </div>
             <div class="form-group">
-                <button type="submit">Thêm sản phẩm</button>
+                <label for="stock_quantity">Số lượng tồn kho:</label>
+                <input type="text" id="stock_quantity" name="stock_quantity">
             </div>
+            <div class="form-group">
+                <button type="submit">Thêm sản phẩm</button>
+</div>
         </form>
     </div>
 </body>

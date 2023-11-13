@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Đăng nhập và Đăng ký</title>
+    <title>Đăng nhập</title>
     <style>
         body {
             display: flex;
@@ -54,14 +54,6 @@
             margin-top: 10px;
         }
     </style>
-    <script>
-        function exportExcel() {
-            var confirmation = confirm("Bạn có muốn xuất file Excel không?");
-            if (confirmation) {
-                window.location.href = "export_excel_user.php";
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -77,7 +69,6 @@
             </div>
             <div class="form-group">
                 <button type="submit">Đăng nhập</button>
-                <button type="button" onclick="exportExcel()">Xuất Excel</button>
             </div>
         </form>
         <p>Chưa có tài khoản? <a href="register.php">Đăng ký ngay</a></p>

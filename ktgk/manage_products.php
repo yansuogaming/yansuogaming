@@ -62,6 +62,11 @@ $conn->close();
             height: 100vh;
             background-image: url(https://www.schemecolor.com/wallpaper?i=54674&desktop);
             background-size: cover;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+            flex-direction: column;
         }
         .container {
             width: 800px;
@@ -73,13 +78,15 @@ $conn->close();
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
         }
 
         th, td {
             padding: 8px;
-            text-align: left;
             border-bottom: 1px solid #ddd;
         }
 
@@ -103,7 +110,7 @@ $conn->close();
 
         .form-group button {
             padding: 5px 10px;
-            background-color: #6666FF;
+            background-color: #4CAF50;
             color: #fff;
             border-radius: 5px;
             margin-bottom: 10px;
@@ -123,20 +130,19 @@ $conn->close();
         function exportExcel() {
             var confirmation = confirm("Bạn có muốn xuất file Excel không?");
             if (confirmation) {
-                window.location.href = "export_excel_product.php";
+                window.location.href = "export_excel_products.php";
             }
         }
 
         function logout() {
-            if (confirm('Bạn có chắc chắn thoát không?')) {
-                window.location.href = "index.php";
+            if (confirm('Bạn có chắc chắn quay lại không?')) {
+                window.location.href = "home.php";
             }
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h2>Xin chào, <?php echo $username; ?> !</h2>
         <h1>QUẢN LÝ SẢN PHẨM</h1>
         <form method="GET" action="">
             <div class="form-group">
@@ -153,6 +159,7 @@ $conn->close();
                     <th>Giá</th>
                     <th>Mô tả</th>
                     <th>Số lượng tồn kho</th>
+                    <th>Button</th>
                     <th></th>
                 </tr>
             </thead>
@@ -165,7 +172,6 @@ $conn->close();
                         <td><?php echo $product["description"]; ?></td>
                         <td><?php echo $product["stock_quantity"]; ?></td>
                         <td>
-                            <a href="add_product.php?id=<?php echo $product["product_id"]; ?>">Thêm</a>
                             <a href="edit_product.php?id=<?php echo $product["product_id"]; ?>">Sửa</a>
                             <a href="delete_product.php?id=<?php echo $product["product_id"]; ?>">Xóa</a>
                         </td>
@@ -174,8 +180,10 @@ $conn->close();
             </tbody>
         </table>
         <div class="form-group">
-            <button type="button" onclick="exportExcel()">Xuất Excel</button>
-            <button type="button" onclick="logout()">Thoát</button>
+        <button onclick="window.location.href='add_product.php'" class="add-button">Thêm sản phẩm</button>
+        <button onclick="window.location.href='create_invoice.php'" class="create-button">In hoá đơn</button>
+        <button type="button" onclick="exportExcel()">Xuất Excel</button>
+            <button type="button" onclick="logout()">Quay lại</button>
         </div>
         <footer style="text-align: center; margin-top: 20px;">
             <p>© Copyright by Yansuo</p>

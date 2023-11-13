@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["role_id"] = $user["role_id"];
 
         // Chuyển hướng đến trang chủ sau khi đăng nhập
-        header("Location: manage_products.php");
+        header("Location: home.php");
         exit();
     } else {
         // Đăng nhập thất bại
@@ -114,6 +114,7 @@ $conn->close();
             ?>
         </form>
         <p>Chưa có tài khoản? <a href="register.php">Đăng ký ngay</a></p>
+        <p style="text-align: center; margin-top: 20px;">© Copyright by Yansuo</p>
     </div>
 </body>
 </html>
