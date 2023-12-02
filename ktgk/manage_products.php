@@ -181,7 +181,6 @@ $conn->close();
         </table>
         <div class="form-group">
         <button onclick="window.location.href='add_product.php'" class="add-button">Thêm sản phẩm</button>
-        <button onclick="window.location.href='create_invoice.php'" class="create-button">In hoá đơn</button>
         <button type="button" onclick="exportExcel()">Xuất Excel</button>
             <button type="button" onclick="logout()">Quay lại</button>
         </div>

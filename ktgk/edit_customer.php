@@ -8,7 +8,7 @@
             display: flex;
             align-items: center;
             height: 100vh;
-            background-image: url(https://www.pixel4k.com/wp-content/uploads/2018/10/abstract-digital-art-purple-background-5k_1539371152.jpg.webp);
+            background-image: url(https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/19/1705d686ea3e4466~tplv-t2oaga2asx-image.image);
             background-size: cover;            
             font-size: 20px;
             text-align: center;
@@ -29,7 +29,7 @@
             flex-direction:column;
             /* margin-left:50%; */
             margin:auto;
-            width: 500px;
+            width: 550px;
             height: 500px;
             background-color:#fff;
             border-radius: 10px;
@@ -117,7 +117,7 @@
     <div class='box'>
         <div class='box-1'>
     <div class='main'>
-    <h2>Chỉnh sửa thông tin khách hàng </h2>
+    <h2>SỬA THÔNG TIN KHÁCH HÀNG </h2>
     <?php
     $selected_customer_id = "";
     $selected_first_name = "";

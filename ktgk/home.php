@@ -116,6 +116,7 @@ $conn->close();
                 <button type="submit" formaction="manage_products.php">Quản lý sản phẩm</button>
                 <button type="submit" formaction="manage_customers.php">Quản lý khách hàng</button>
                 <button type="submit" formaction="manage_users.php">Quản lý người dùng</button>
+                <button type="submit" formaction="manage_users.php">Quản lý người dùng</button>
                 <button type="button" onclick="logout()">Thoát</button>
             </div>
         </form>

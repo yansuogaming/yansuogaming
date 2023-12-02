@@ -4,12 +4,23 @@
     <title>Thêm người dùng</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 20px;
+            display:flex;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/19/1705d686ea3e4466~tplv-t2oaga2asx-image.image);
+            background-size: cover;
+            
+            
+        }
+
+        .main{
+           margin: auto;
         }
 
         h1 {
             margin-bottom: 20px;
+            text-align: center;
         }
 
         form {
@@ -48,7 +59,8 @@
     </style>
 </head>
 <body>
-    <h1>Thêm người dùng</h1>
+    <div class='main'>
+    <h1>THÊM NGƯỜI DÙNG</h1>
 
     <?php
     $servername = "localhost";
@@ -75,7 +87,10 @@
             $password_err = "Vui lòng nhập mật khẩu";
         } else {
             $password = $_POST["password"];
+        if (strlen($password) < 6) {
+            $password_length_err = "Mật khẩu phải có ít nhất 6 ký tự";
         }
+    }
 
         if (empty($_POST["email"])) {
             $email_err = "Vui lòng nhập email";
@@ -90,9 +105,20 @@
         }
 
         if (empty($username_err) && empty($password_err) && empty($email_err) && empty($full_name_err)) {
-            $role_id = 1; // Đặt RoleID mặc định là 1
+            // Truy vấn cơ sở dữ liệu để lấy RoleID mặc định
+            $sql = "SELECT role_id FROM Roles WHERE role_name = 'default'";
+            $result = $conn->query($sql);
+        
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $role_id = $row["role_id"];
+            } else {
+                // Nếu không tìm thấy RoleID mặc định, sử dụng giá trị cố định
+                $role_id = 2;
+            }
 
-            $sql = "INSERT INTO Users (username, password, email, full_name, role_id) VALUES ('$username', '$password', '$email', '$full_name', $role_id)";
+                // Tiếp tục thêm người dùng vào cơ sở dữ liệu với RoleID đã xác định
+                $sql = "INSERT INTO Users (username, password, email, full_name, role_id) VALUES ('$username', '$password', '$email', '$full_name', $role_id)";
 
             if ($conn->query($sql) === TRUE) {
                 echo "Người dùng đã được thêm thành công!";
@@ -108,11 +134,11 @@
     ?>
 
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="username">Username:</label>
+        <label for="username">Tên đăng nhập:</label>
         <input type="text" name="username" id="username" value="<?php echo $username; ?>" required>
         <span class="error"><?php echo $username_err; ?></span>
 
-        <label for="password">Password:</label>
+        <label for="password">Mật khẩu:</label>
         <input type="password" name="password" id="password" required>
         <span class="error"><?php echo $password_err; ?></span>
 
@@ -120,7 +146,7 @@
         <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
         <span class="error"><?php echo $email_err; ?></span>
 
-        <label for="full_name">Full Name:</label>
+        <label for="full_name">Tên:</label>
         <input type="text" name="full_name" id="full_name" value="<?php echo $full_name; ?>" required>
         <span class="error"><?php echo $full_name_err; ?></span>
 

@@ -11,10 +11,21 @@
             background-image: url(https://images7.alphacoders.com/131/1318803.jpeg);
             background-size: cover;
         }
+
+        .main{
+           margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
         </style>
 </head>
 <body>
-    <h1>Chỉnh sửa người dùng</h1>
+    <div class='main'>
+    <h1>CHỈNH SỬA TÊN NGƯỜI DÙNG</h1>
 
     <?php
     $servername = "localhost";
@@ -68,13 +79,13 @@
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <input type="hidden" name="user_id" value="<?php echo $user["user_id"]; ?>">
 
-        <label for="username">Username:</label>
+        <label for="username">Tên người dùng:</label>
         <input type="text" name="username" id="username" value="<?php echo $user["username"]; ?>" required><br><br>
 
-        <label for="password">Password:</label>
+        <label for="password">Mật khẩu:</label>
         <input type="password" name="password" id="password" required><br><br>
 
-        <label for="full_name">Full Name:</label>
+        <label for="full_name">Tên:</label>
         <input type="text" name="full_name" id="full_name" value="<?php echo $user["full_name"]; ?>" required><br><br>
 
         <input type="submit" value="Cập nhật">

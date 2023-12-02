@@ -122,10 +122,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             window.location.href = "manage_products.php";
         }
 
-        function redirectToProductSelection() {
+        function redirectToProductSelection(customerId) {
         // Chuyển hướng đến trang select_product.php
-        window.location.href = "select_product.php?customer_id=" + customerId;
-        }
+        window.location.href = "order.php?customer_id=" + customerId;
+    }
 
     </script>
 </head>
@@ -152,8 +152,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<td>" . $row["email"] . "</td>";
                 echo "<td>" . $row["phone"] . "</td>";
                 echo "<td>";
-                // Thêm nút "Khách hàng" với thuộc tính onclick
-                echo "<button type='button' onclick='redirectToProductSelection(" . $row["customer_id"] . ")'>Mua sản phẩm</button>";                
+                echo "<div class='button-container'>";
+                // Thêm nút "Mua sản phẩm" với thuộc tính onclick
+                echo "<button type='button' onclick='redirectToProductSelection(" . $row["customer_id"] . ")'>Mua sản phẩm</button>";
+                echo "</div>";
                 echo "</td>";
                 echo "</tr>";
             }
