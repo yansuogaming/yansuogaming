@@ -72,7 +72,7 @@ if(isset($_POST['add_to_cart'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/new/user/style_home.css">
 
 </head>
 <body>
@@ -102,8 +102,8 @@ if(isset($_POST['add_to_cart'])){
       ?>
       <form action="" method="POST" class="box">
          <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="fas fa-eye"></a>
-         <div class="price">$<?php echo $fetch_products['price']; ?>/-</div>
-         <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="" class="image">
+         <div class="price">$<?php echo $fetch_products['price']; ?></div>
+         <img src="./flowers/pink bouquet.jpg" alt="" class="image">
          <div class="name"><?php echo $fetch_products['name']; ?></div>
          <input type="number" name="product_quantity" value="1" min="0" class="qty">
          <input type="hidden" name="product_id" value="<?php echo $fetch_products['id']; ?>">

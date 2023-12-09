@@ -15,12 +15,14 @@ if(isset($message)){
 
     <div class="flex">
 
-        <a href="home.php" class="logo">flowers.</a>
+        <a href="home.php" class="logo">
+            <img src="#" alt="logo">
+        </a>
 
         <nav class="navbar">
             <ul>
                 <li><a href="home.php">home</a></li>
-                <li><a href="#">pages +</a>
+                <li><a href="#">pages </a>
                     <ul>
                         <li><a href="about.php">about</a></li>
                         <li><a href="contact.php">contact</a></li>
@@ -28,7 +30,7 @@ if(isset($message)){
                 </li>
                 <li><a href="shop.php">shop</a></li>
                 <li><a href="orders.php">orders</a></li>
-                <li><a href="#">account +</a>
+                <li><a href="#">account </a>
                     <ul>
                         <li><a href="login.php">login</a></li>
                         <li><a href="register.php">register</a></li>

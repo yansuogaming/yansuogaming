@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $message[] = 'confirm password not matched!';
       }else{
-         mysqli_query($conn, "INSERT INTO `users`(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
+         mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$pass', 'admin')") or die('query failed');
          $message[] = 'registered successfully!';
          header('location:login.php');
       }
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/new/admin/style_admin_register.css">
 
 </head>
 <body>
@@ -64,7 +64,7 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>register now</h3>
+      <h3>Register Admin</h3>
       <input type="text" name="name" class="box" placeholder="enter your username" required>
       <input type="email" name="email" class="box" placeholder="enter your email" required>
       <input type="password" name="pass" class="box" placeholder="enter your password" required>
